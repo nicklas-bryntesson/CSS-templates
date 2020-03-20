@@ -1,0 +1,35 @@
+/* breakpoints */
+
+/*
+* PostCSS
+*
+* Encapsulated Custom Media Queries
+* Works like Custom Properties, except for media queries.
+*
+* "Generic first" Encapsulation
+* read more at: https://www.smashingmagazine.com/2018/12/generic-css-mobile-first/
+*
+* @link: https://drafts.csswg.org/mediaqueries-5/#custom-mq
+**/
+
+:root {
+    @custom-media --phone (0 < width < 28em);
+    @custom-media --tablet (28em < width < 48em);
+    @custom-media --tablet-wide (48em < width < 64em);
+    @custom-media --desktop (64em < width < 80em);
+    @custom-media --desktop-wide (80em < width < 112.5em);
+   
+    @custom-media --above-phone (width >= 28em);
+    @custom-media --above-tablet (width >= 48em);
+    @custom-media --above-tablet-wide (width >= 64em);
+    @custom-media --above-desktop ( width >= 80em );
+    @custom-media --above-desktop-wide ( width >= 112.5em );
+}
+
+/* px size at 16px base font size
+* 28em   =   448px
+* 48em   =   768px
+* 64em   =   1024px
+* 80em   =   1280px
+* 112,5  =   1800px
+*/
