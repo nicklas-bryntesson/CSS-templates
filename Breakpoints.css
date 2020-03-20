@@ -1,16 +1,23 @@
-/* breakpoints */
-
 /*
-* PostCSS
+* PostCSS Custom Media - Breakpoints
 *
 * Encapsulated Custom Media Queries
 * Works like Custom Properties, except for media queries.
 *
-* "Generic first" Encapsulation
+* @link: https://drafts.csswg.org/mediaqueries-5/#custom-mq
+*
+* "Generic first" approach with encapsulated queries
 * read more at: https://www.smashingmagazine.com/2018/12/generic-css-mobile-first/
 *
-* @link: https://drafts.csswg.org/mediaqueries-5/#custom-mq
 **/
+
+/* px size at 16px base font size
+* 28em   =   448px
+* 48em   =   768px
+* 64em   =   1024px
+* 80em   =   1280px
+* 112,5  =   1800px
+*/
 
 :root {
     @custom-media --phone (0 < width < 28em);
@@ -26,10 +33,35 @@
     @custom-media --above-desktop-wide ( width >= 112.5em );
 }
 
-/* px size at 16px base font size
-* 28em   =   448px
-* 48em   =   768px
-* 64em   =   1024px
-* 80em   =   1280px
-* 112,5  =   1800px
-*/
+/* Usage */
+
+.card {
+    /* Generic styles */
+    position: relative;
+    display: flex;
+}
+
+@media (--phone) {
+    .card {
+        padding: 1em;
+    }
+}
+
+@media (--tablet) {
+    .card {
+        padding: 1.2em;
+        font-size: medium;
+    }
+}
+
+@media (--phone), (--tablet) {
+    .card {
+        background-color: papayawhip;
+    }
+}
+
+@media (--above-tablet) {
+    .card {
+        background-color: peachpuff
+    }
+}
